@@ -1,15 +1,12 @@
+
 language: node_js
 node_js:
   - '8'
 before_install:
-  - export TZ=Asia/Shanghai
-  - date
+  - npm i npminstall -g
 install:
-  - npm i
-before_script:
-  - echo "Asia/Shanghai" | sudo tee /etc/timezone
-  - sudo dpkg-reconfigure -f noninteractive tzdata
+  - npminstall
 script:
   - npm run ci
 after_script:
-  - npm i codecov && codecov
+  - npminstall codecov && codecov
